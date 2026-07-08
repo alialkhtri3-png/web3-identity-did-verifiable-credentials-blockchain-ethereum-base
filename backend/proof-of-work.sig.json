@@ -1,0 +1,18 @@
+{
+  "type": "Web3 Achievement Signature",
+  "certificate": "Ali Alkhtri Web3 Journey #001",
+  "creator": "Ali Alkhtri",
+  "identity": "ali.cb.id",
+  "certificateCID": "Qmdc6yLRj1w3vvWx6Woaz5K4sTMPnyNuqHobMFmHE8ZqTQ",
+  "previousCID": "QmP6aZu6WfqHNBsdorEqi58CiC7W8BxPm4tibddpmxrGiu",
+  "network": "IPFS",
+  "version": "V29",
+  "createdAt": "2026-07-08T17:00:00Z",
+  "signature": {
+    "status": "verified",
+    "method": "Ethereum personal_sign",
+    "address": "0x9858EfFD232B4033E47d90003D41EC34EcaEda94",
+    "messageHash": "0x67bb2d3734423e6318347d21252ec27ea7e26430d1a0ca198339f06ef27c635e",
+    "value": "0x49470eb2ac55941d7cc5825e32b0edb8f4536723d958d78137ff7dca579b46ea72e67503512421e3b62e64c4623846739193da18b8549e04f2cc1442fb3427b91b"
+  }
+}
