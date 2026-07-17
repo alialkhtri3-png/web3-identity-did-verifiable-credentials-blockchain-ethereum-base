@@ -1,0 +1,9 @@
+async function getLogsChunked(fromBlock, toBlock) {
+  let logs = [];
+  for (let i = fromBlock; i < toBlock; i += 9000) {
+    let end = Math.min(i + 9000, toBlock);
+    let chunk = await provider.getLogs({ fromBlock: i, toBlock: end, ... });
+    logs.push(...chunk);
+  }
+  return logs;
+}

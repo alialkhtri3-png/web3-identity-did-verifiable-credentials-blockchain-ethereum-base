@@ -1,0 +1,50 @@
+{
+  "identityEngine": "Sovereign Identity Engine V3",
+  "identity": {
+    "wallet": "0x827922686190790b37229fd06084350e74485b72",
+    "network": "Base"
+  },
+  "activity": {
+    "transactions": 92,
+    "tokens": 5,
+    "firstActivity": "2026-07-12T19:22:51.000Z",
+    "lastActivity": "2026-07-13T22:38:41.000Z"
+  },
+  "portfolio": {
+    "ETH": "0.0"
+  },
+  "graph": {
+    "uniqueConnections": 29,
+    "topPartners": [
+      [
+        "0x861a2922be165a5bd41b1e482b49216b465e1b5f",
+        16
+      ],
+      [
+        "0x70acdf2ad0bf2402c957154f944c19ef4e1cbae1",
+        11
+      ],
+      [
+        "0x2ae9df02539887d4ebce0230168a302d34784c82",
+        10
+      ],
+      [
+        "0xb2cc224c1c9fee385f8ad6a55b4d94e92359dc59",
+        9
+      ],
+      [
+        "0xb099c658e784b41ee435d48a8eb67e8f27285c93",
+        7
+      ]
+    ]
+  },
+  "reputation": {
+    "score": 90,
+    "label": "Trusted User",
+    "sybilRisk": 10
+  },
+  "scannedBlocks": {
+    "from": 48546994,
+    "to": 48596994
+  }
+}

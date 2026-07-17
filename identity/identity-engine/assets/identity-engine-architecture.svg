@@ -1,0 +1,21 @@
+        Wallet
+          |
+   Sign Message
+          |
+          v
++----------------------+
+| Authentication Layer |
++----------------------+
+          |
+          v
++----------------------+
+|  Identity Engine API |
++----------------------+
+     |        |        |
+     v        v        v
+ Analyzer    DID    Reputation
+     |        |        |
+ Blockchain  ID   Sybil Score
+          |
+          v
+   Trusted Identity

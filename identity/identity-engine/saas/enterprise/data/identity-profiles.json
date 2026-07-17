@@ -1,0 +1,11 @@
+[
+  {
+    "id": "identity-1784237756461",
+    "orgId": "org-1784237615048",
+    "wallet": "0x123456789",
+    "role": "ADMIN",
+    "reputation": 95,
+    "sybilRisk": "LOW",
+    "createdAt": "2026-07-16T21:35:56.461Z"
+  }
+]
