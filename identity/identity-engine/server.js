@@ -175,6 +175,32 @@ message:e.message
 
 
 
+
+    
+app.get("/api/identity/:wallet",(req,res)=>{
+try{
+
+const { getIdentity } = require("./database/identityStore.js");
+
+const identity=getIdentity(req.params.wallet);
+
+if(!identity)
+return res.status(404).json({
+error:"identity not found"
+});
+
+res.json(identity);
+
+}catch(e){
+
+res.status(500).json({
+error:e.message
+});
+
+}
+
+});
+
 app.listen(PORT,()=>{
 
 console.log(
