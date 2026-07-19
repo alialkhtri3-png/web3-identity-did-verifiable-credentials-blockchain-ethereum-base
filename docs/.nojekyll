@@ -1,0 +1,42 @@
+# Sovereign Identity Engine
+
+## Decentralized Identity Infrastructure for Web3
+
+Sovereign Identity Engine is an open-source identity verification layer built for Web3 applications.
+
+It enables:
+- 🔐 Verifiable Credentials
+- ✍️ ECDSA Signature Verification
+- 🧬 Decentralized Identity Profiles
+- 📊 Reputation & Identity Scoring
+- 🔗 Blockchain Identity Intelligence
+- 🌐 Base Network Integration
+
+## Core Vision
+
+Build a trusted identity layer where users, applications, and organizations can verify digital identity without centralized control.
+
+## Technology Stack
+
+Ethereum • Base Network • DID • Verifiable Credentials • Cryptographic Proofs
+
+## Current Release
+
+V13.1.0  
+Production Prototype
+
+## Security
+
+✓ Private keys excluded  
+✓ Cryptographic proof manifests  
+✓ Signature validation  
+✓ Issuer verification  
+
+## Demo
+
+Live identity verification flow:
+Identity → Credential → Signature → Verification
+
+## Mission
+
+Create an open identity protocol for the next generation of Web3 applications.
