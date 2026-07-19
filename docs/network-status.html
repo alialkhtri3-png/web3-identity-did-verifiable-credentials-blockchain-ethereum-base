@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sovereign Identity Network Status</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🌐 Live Network Status</h1>
+
+<p>
+Real-time infrastructure connectivity monitor.
+</p>
+
+<hr>
+
+<div id="status">
+Checking networks...
+</div>
+
+<script>
+
+const networks=[
+{
+name:"Base Mainnet",
+rpc:"https://mainnet.base.org"
+},
+{
+name:"Ethereum Mainnet",
+rpc:"https://cloudflare-eth.com"
+},
+{
+name:"BNB Chain",
+rpc:"https://bsc-dataseed.binance.org"
+},
+{
+name:"Arbitrum",
+rpc:"https://arb1.arbitrum.io/rpc"
+},
+{
+name:"Optimism",
+rpc:"https://mainnet.optimism.io"
+}
+];
+
+
+async function checkNetwork(network){
+
+try{
+
+const response=await fetch(network.rpc,{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+jsonrpc:"2.0",
+method:"eth_blockNumber",
+params:[],
+id:1
+})
+});
+
+const data=await response.json();
+
+if(data.result){
+
+const block=parseInt(data.result,16);
+
+return `
+<li>
+✅ ${network.name}
+<br>
+Block: ${block}
+</li>
+`;
+
+}
+
+}catch(e){}
+
+return `
+<li>
+❌ ${network.name}
+</li>
+`;
+
+}
+
+
+async function run(){
+
+let html="<h2>Network Connectivity</h2><ul>";
+
+for(const network of networks){
+html+=await checkNetwork(network);
+}
+
+html+="</ul>";
+
+document.getElementById("status").innerHTML=html;
+
+}
+
+run();
+
+</script>
+
+</body>
+</html>
