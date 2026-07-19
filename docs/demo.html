@@ -1,44 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sovereign Identity Demo</title>
+<meta charset="UTF-8">
+<title>Sovereign Identity Verification Demo</title>
 <style>
-body{
-font-family:Arial;
-max-width:800px;
-margin:40px auto;
-}
-.card{
-border:1px solid #ccc;
-padding:20px;
-border-radius:12px;
-margin:15px;
-}
+body{font-family:Arial;max-width:900px;margin:40px auto;padding:20px}
+textarea{width:100%;height:220px}
+button{padding:12px 20px}
+#result{margin-top:20px;font-weight:bold}
 </style>
 </head>
-
 <body>
 
-<h1>Sovereign Identity Engine Demo</h1>
+<h1>🔐 Sovereign Identity Verification Demo</h1>
 
-<div class="card">
-<h2>Identity Report</h2>
-<p>Score: <b>70/100</b></p>
-<p>Network: Base Mainnet</p>
-<p>Status: Verified</p>
-</div>
+<p>Paste Verifiable Credential JSON:</p>
 
-<div class="card">
-<h2>Credential Verification</h2>
-<p>Signature: ✅ VALID</p>
-<p>Hash Validation: ✅ PASS</p>
-<p>Issuer Verification: ✅ PASS</p>
-</div>
+<textarea id="credential">
+{
+  "id":"credential_demo_001",
+  "issuer":"Sovereign Identity Engine",
+  "network":"Base Mainnet",
+  "type":"VerifiableCredential"
+}
+</textarea>
 
-<div class="card">
-<h2>Issuer</h2>
-<p>0xa58588Dc4770E5Ba76A9f9d8B45318a78BBf128C</p>
-</div>
+<br><br>
+
+<button onclick="verify()">Verify Credential</button>
+
+<div id="result"></div>
+
+<script>
+async function verify(){
+
+const data=document.getElementById("credential").value;
+
+try{
+JSON.parse(data);
+
+const hashBuffer=await crypto.subtle.digest(
+"SHA-256",
+new TextEncoder().encode(data)
+);
+
+const hash=[...new Uint8Array(hashBuffer)]
+.map(x=>x.toString(16).padStart(2,"0"))
+.join("");
+
+document.getElementById("result").innerHTML=
+"✅ Credential Valid<br><br>SHA-256:<br>"+hash;
+
+}catch(e){
+
+document.getElementById("result").innerHTML=
+"❌ Invalid Credential JSON";
+
+}
+
+}
+</script>
 
 </body>
 </html>
