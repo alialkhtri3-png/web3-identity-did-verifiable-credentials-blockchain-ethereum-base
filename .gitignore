@@ -48,3 +48,10 @@ identity/identity-engine/data/
 signed_identity.json
 signed_credential.json
 issuer.json
+
+# Runtime data
+identity/identity-engine/identity/identity-engine/profiles/*.json
+identity/identity-engine/identity/identity-engine/saas/**/data/*.json
+identity/identity-engine/identity/identity-engine/wallet-deposits.json
+extras/
+src/
