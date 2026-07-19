@@ -1,0 +1,10 @@
+{
+  "contract-473b9c21cd.sol": {
+    "__sources__": {
+      "contract-473b9c21cd.sol": {
+        "content": "// SPDX-License-Identifier: GPL-3.0\npragma solidity >=0.5.0 <0.9.0;\n\ncontract C {\n    // The data location of x is storage.\n    // This is the only place where the\n    // data location can be omitted.\n    uint[] x;\n\n    // The data location of memoryArray is memory.\n    function f(uint[] memory memoryArray) public {\n        x = memoryArray; // works, copies the whole array to storage\n        uint[] storage y = x; // works, assigns a pointer, data location of y is storage\n        y[7]; // fine, returns the 8th element\n        y.pop(); // fine, modifies x through y\n        delete x; // fine, clears the array, also modifies y\n        // The following does not work; it would need to create a new temporary /\n        // unnamed array in storage, but storage is \"statically\" allocated:\n        // y = memoryArray;\n        // Similarly, \"delete y\" is not valid, as assignments to local variables\n        // referencing storage objects can only be made from existing storage objects.\n        // It would \"reset\" the pointer, but there is no sensible location it could point to.\n        // For more details see the documentation of the \"delete\" operator.\n        // delete y;\n        g(x); // calls g, handing over a reference to x\n        h(x); // calls h and creates an independent, temporary copy in memory\n    }\n\n    function g(uint[] storage) internal pure {}\n    function h(uint[] memory) public pure {}\n}",
+        "file": "contract-473b9c21cd.sol"
+      }
+    }
+  }
+}
