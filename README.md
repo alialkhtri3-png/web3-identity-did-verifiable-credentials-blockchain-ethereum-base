@@ -159,10 +159,10 @@ EOF
 # Sovereign Identity Engine
 
 Official Website:
-https://alialkhtri3-png.github.io/SovereignLayer/
+https://alialkhtri3-png.github.io/web3-identity-did-verifiable-credentials-blockchain-ethereum-base/
 
 Latest Release:
-https://github.com/alialkhtri3-png/SovereignLayer/releases/tag/v13.0.1
+https://github.com/alialkhtri3-png/web3-identity-did-verifiable-credentials-blockchain-ethereum-base/releases/tag/v13.0.1
 ## Architecture
 
 ![Architecture](docs/assets/architecture.png)
