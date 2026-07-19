@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sovereign Developer Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>👨‍💻 Sovereign Developer Portal</h1>
+
+<p>
+Build identity applications with Verifiable Credentials and Web3 infrastructure.
+</p>
+
+<hr>
+
+<h2>API Access</h2>
+
+<table border="1" cellpadding="10">
+<tr>
+<th>Service</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Identity Engine API</td>
+<td>Online</td>
+</tr>
+
+<tr>
+<td>Credential Verification API</td>
+<td>Online</td>
+</tr>
+
+<tr>
+<td>Multi-chain Scanner</td>
+<td>Online</td>
+</tr>
+
+<tr>
+<td>Reputation Engine</td>
+<td>Online</td>
+</tr>
+
+</table>
+
+
+<hr>
+
+<h2>Credential Flow</h2>
+
+<ol>
+<li>Create Identity Request</li>
+<li>Issue Verifiable Credential</li>
+<li>Store Credential Proof</li>
+<li>Verify Signature</li>
+<li>Return Trust Score</li>
+</ol>
+
+
+<hr>
+
+<h2>Example Verification Request</h2>
+
+<pre>
+POST /verify
+
+{
+ "credential_id":"example",
+ "network":"base",
+ "proof":"signature"
+}
+</pre>
+
+
+<hr>
+
+<h2>Supported Networks</h2>
+
+<ul>
+<li>Base Mainnet</li>
+<li>Ethereum</li>
+<li>BNB Chain</li>
+<li>Arbitrum</li>
+<li>Optimism</li>
+</ul>
+
+
+<hr>
+
+<h2>Developer Roadmap</h2>
+
+<ul>
+<li>SDK Packages</li>
+<li>API Authentication</li>
+<li>Enterprise Integrations</li>
+<li>Identity Wallet Support</li>
+</ul>
+
+
+<p>
+Sovereign Identity Engine V13.1.1+
+</p>
+
+</body>
+</html>
