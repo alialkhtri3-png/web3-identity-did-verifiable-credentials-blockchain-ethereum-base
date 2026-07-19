@@ -1,0 +1,18 @@
+{
+  "identity": "Ali.cb.id",
+  "wallet": "0x02F887bea6275318cC79c0639Db9e3037e216e49",
+  "artifact": {
+    "title": "Digital Identity Milestone",
+    "type": "Gap Support Capsule",
+    "project": "Sovereign Identity Engine"
+  },
+  "milestone": {
+    "token": "$ZORA",
+    "status": "recorded"
+  },
+  "proof": {
+    "method": "wallet-signature",
+    "network": "Base/Ethereum"
+  },
+  "created": "2026-07-19"
+}

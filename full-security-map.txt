@@ -1,0 +1,831 @@
+./auth/verifySignature.js:3:export function verifyWalletSignature(address, message, signature){
+./auth/jwt.js:1:import jwt from "jsonwebtoken";
+./auth/jwt.js:9:export function createToken(data){
+./auth/jwt.js:24:export function verifyToken(token){
+./auth/jwt.js:27:token,
+./auth/socialAuth.js:2:createToken
+./auth/socialAuth.js:47:const token =
+./auth/socialAuth.js:48:createToken(user);
+./auth/socialAuth.js:58:token
+./auth/middleware.js:2:verifyToken
+./auth/middleware.js:22:error:"No token"
+./auth/middleware.js:29:const token =
+./auth/middleware.js:41:verifyToken(token);
+./auth/middleware.js:53:error:"Invalid token"
+./analyzer/walletAnalyzer.js:1:import { getBaseWalletData } from "./baseIndexer.js";
+./analyzer/walletAnalyzer.js:4:import { scanTokens } from "./tokenScanner.js";
+./analyzer/walletAnalyzer.js:6:import { detectSybil } from "./sybilDetector.js";
+./analyzer/walletAnalyzer.js:7:import { calculateReputation } from "../calculateReputation.js";
+./analyzer/walletAnalyzer.js:9:export async function analyzeWallet(wallet){
+./analyzer/walletAnalyzer.js:13:    const baseData = await getBaseWalletData(wallet);
+./analyzer/walletAnalyzer.js:16:        ...await scanTransactions(wallet),
+./analyzer/walletAnalyzer.js:28:    const logs = await scanBaseLogs(wallet);
+./analyzer/walletAnalyzer.js:30:    const tokens = await scanTokens(wallet);
+./analyzer/walletAnalyzer.js:33:        wallet,
+./analyzer/walletAnalyzer.js:37:    const sybil = detectSybil({
+./analyzer/walletAnalyzer.js:38:        wallet,
+./analyzer/walletAnalyzer.js:43:    const reputation = calculateReputation({
+./analyzer/walletAnalyzer.js:45:        tokens,
+./analyzer/walletAnalyzer.js:46:        sybil
+./analyzer/walletAnalyzer.js:52:        wallet,
+./analyzer/walletAnalyzer.js:64:        tokens,
+./analyzer/walletAnalyzer.js:68:        reputation,
+./analyzer/walletAnalyzer.js:70:        sybil,
+./analyzer/walletAnalyzer.js:81:                "WalletAge",
+./analyzer/walletAnalyzer.js:83:                "TokenScanner",
+./analyzer/walletAnalyzer.js:85:                "SybilDetector",
+./analyzer/walletAnalyzer.js:86:                "ReputationEngine",
+./analyzer/walletAnalyzer.js:87:                "ContractAnalyzer",
+./analyzer/baseIndexer.js:11:export async function indexWallet(wallet){
+./analyzer/baseIndexer.js:44:                    ethers.zeroPadValue(wallet,32)
+./analyzer/baseIndexer.js:76:        contracts:[
+./analyzer/baseIndexer.js:90:export async function getBaseWalletData(wallet){
+./analyzer/baseIndexer.js:92:    return await indexWallet(wallet);
+./analyzer/baseActivity.js:7:export async function analyzeActivity(wallet){
+./analyzer/baseActivity.js:22:        contractsUsed:0,
+./analyzer/tokenScanner.js:11:export async function scanTokens(
+./analyzer/tokenScanner.js:13:    wallet,
+./analyzer/tokenScanner.js:19:    ethers.getAddress(wallet);
+./analyzer/tokenScanner.js:46:        tokens:[
+./analyzer/graphBuilder.js:1:export function buildGraph(walletData){
+./analyzer/graphBuilder.js:7:                id:walletData.wallet,
+./analyzer/graphBuilder.js:8:                type:"wallet"
+./analyzer/sybilDetector.js:1:export function detectSybil(data){
+./analyzer/sybilDetector.js:18:    if(!data.tokens || data.tokens.length===0){
+./analyzer/sybilDetector.js:23:            "no_token_activity"
+./analyzer/baseTransactions.js:11:export async function scanBaseTransactions(wallet){
+./analyzer/baseTransactions.js:14:        await scanHistoricalLogs(wallet);
+./analyzer/baseTransactions.js:23:        wallet,
+./analyzer/baseTransactions.js:32:        contractsUsed:
+./analyzer/baseTransactions.js:33:            history.contractsUsed,
+./analyzer/baseTransactions.js:36:        contracts:
+./analyzer/baseTransactions.js:37:            history.contracts,
+./analyzer/walletAge.js:5:export async function getWalletAge(wallet){
+./analyzer/walletAge.js:6: wallet = wallet.toLowerCase();
+./analyzer/walletAge.js:19:     ethers.zeroPadValue(wallet,32)
+./analyzer/baseLogScanner.js:13:async function safeLogs(wallet){
+./analyzer/baseLogScanner.js:55:                        wallet,
+./analyzer/baseLogScanner.js:85:export async function scanBaseLogs(wallet){
+./analyzer/baseLogScanner.js:88:    await safeLogs(wallet);
+./analyzer/baseLogScanner.js:97:            token:x.address,
+./analyzer/baseLogScanner.js:112:export async function scanLogs(wallet){
+./analyzer/baseLogScanner.js:114:    return scanBaseLogs(wallet);
+./analyzer/contractAnalyzer.js:9:export async function analyzeContract(address){
+./analyzer/contractAnalyzer.js:21:   isContract:false
+./analyzer/contractAnalyzer.js:32:  isContract:true,
+./analyzer/nftSecurity.js:1:function detectNFTSpam(tokens){
+./analyzer/nftSecurity.js:6:for(const nft of tokens){
+./analyzer/nftSecurity.js:20:token:nft.name,
+./analyzer/transactionScanner.js:11:export async function scanTransactions(wallet){
+./analyzer/transactionScanner.js:13:    wallet = wallet.toLowerCase();
+./analyzer/transactionScanner.js:26:    let contracts = new Set();
+./analyzer/transactionScanner.js:88:                        fromAddr === wallet ||
+./analyzer/transactionScanner.js:89:                        toAddr === wallet
+./analyzer/transactionScanner.js:101:                            contracts.add(
+./analyzer/transactionScanner.js:146:        contractsUsed:
+./analyzer/transactionScanner.js:147:            contracts.size,
+./analyzer/transactionScanner.js:150:        contracts:
+./analyzer/transactionScanner.js:151:            [...contracts],
+./analyzer/transactionScanner.js:164:        "Native ETH + Contract transaction scanner V8.5.1"
+./analyzer/nativeScanner.js:9:export async function scanNative(wallet){
+./analyzer/nativeScanner.js:11: wallet = wallet.toLowerCase();
+./analyzer/nativeScanner.js:52:      wallet,
+./analyzer/addressAnalyzer.js:9:export async function analyzeAddress(wallet){
+./analyzer/addressAnalyzer.js:12: await provider.getCode(wallet);
+./analyzer/addressAnalyzer.js:19:   ?"EOA Wallet"
+./analyzer/addressAnalyzer.js:20:   :"Smart Contract",
+./analyzer/addressAnalyzer.js:22:  isContract:
+./analyzer/transactionHistory.js:8:export async function scanTransactionHistory(wallet){
+./analyzer/transactionHistory.js:19:    let contracts = new Set();
+./analyzer/transactionHistory.js:45:                  === wallet.toLowerCase()
+./analyzer/transactionHistory.js:52:                        contracts.add(
+./analyzer/transactionHistory.js:75:        contractsUsed:
+./analyzer/transactionHistory.js:76:          contracts.size,
+./analyzer/transactionHistory.js:78:        contracts:
+./analyzer/transactionHistory.js:79:          [...contracts],
+./reputation/scoreEngine.js:1:export function calculateScore(wallet){
+./reputation/scoreEngine.js:4:  let sybilScore = 50;
+./reputation/scoreEngine.js:5:  let role = "New Wallet";
+./reputation/scoreEngine.js:8:  if(wallet.transactions > 100){
+./reputation/scoreEngine.js:10:    sybilScore -= 20;
+./reputation/scoreEngine.js:12:  else if(wallet.transactions > 10){
+./reputation/scoreEngine.js:14:    sybilScore -= 10;
+./reputation/scoreEngine.js:16:  else if(wallet.transactions === 0){
+./reputation/scoreEngine.js:17:    sybilScore += 20;
+./reputation/scoreEngine.js:21:  const balance = Number(wallet.balance || 0);
+./reputation/scoreEngine.js:26:    sybilScore -= 10;
+./reputation/scoreEngine.js:33:  if(wallet.firstActivity){
+./reputation/scoreEngine.js:35:    sybilScore -= 10;
+./reputation/scoreEngine.js:39:  if(sybilScore < 0)
+./reputation/scoreEngine.js:40:    sybilScore = 0;
+./reputation/scoreEngine.js:47:  if(activityScore >= 70 && sybilScore < 20){
+./reputation/scoreEngine.js:54:    role = "New Wallet";
+./reputation/scoreEngine.js:60:    sybilScore,
+./reputation/reputationEngine.js:1:export function calculateReputation(data){
+./reputation/reputationEngine.js:27:            "wallet_activity"
+./reputation/reputationEngine.js:33:    // Tokens
+./reputation/reputationEngine.js:34:    const tokens =
+./reputation/reputationEngine.js:35:        data.tokens?.length || 0;
+./reputation/reputationEngine.js:38:    if(tokens > 5){
+./reputation/reputationEngine.js:43:            "token_diversity"
+./reputation/reputationEngine.js:49:    // Wallet age
+./reputation/reputationEngine.js:55:            "wallet_age"
+./reputation/reputationEngine.js:77:    let role="New Wallet";
+./did/didBuilder.js:10: `did:web:alialkhtri3-png.github.io:base-onchain-identity`,
+./did/didBuilder.js:12: wallet:
+./server.js:1:import { analyzeWallet } from "./analyzer/walletAnalyzer.js";
+./server.js:4:import {passportRoutes} from "./saas/enterprise/identity/passportRoutes.js";
+./server.js:5:import {credentialRoutes} from "./saas/enterprise/identity/credentialRoutes.js";
+./server.js:16:import { identityRoutes }
+./server.js:17:from "./saas/enterprise/identity/routes.js";
+./server.js:20:from "./saas/enterprise/identity/graphRoutes.js";
+./server.js:23:from "./saas/enterprise/identity/intelligenceRoutes.js";
+./server.js:26:from "./saas/enterprise/identity/scanRoutes.js";
+./server.js:35:app.use("/api/identity/passport",passportRoutes);
+./server.js:37:app.use("/api/credential",credentialRoutes);
+./server.js:39:app.use("/api/identity/passport",passportRoutes);
+./server.js:43:app.use("/api/identity/passport",passportRoutes);
+./server.js:45:app.use("/api/credential",credentialRoutes);
+./server.js:47:app.use("/api/identity/passport",passportRoutes);
+./server.js:53:app.use("/api/identity/passport",passportRoutes);
+./server.js:55:app.use("/api/credential",credentialRoutes);
+./server.js:57:app.use("/api/identity/passport",passportRoutes);
+./server.js:63:app.use("/api/identity/passport",passportRoutes);
+./server.js:65:app.use("/api/credential",credentialRoutes);
+./server.js:67:app.use("/api/identity/passport",passportRoutes);
+./server.js:73:app.use("/api/identity/passport",passportRoutes);
+./server.js:75:app.use("/api/credential",credentialRoutes);
+./server.js:77:app.use("/api/identity/passport",passportRoutes);
+./server.js:84:app.use("/api/identity/passport",passportRoutes);
+./server.js:86:app.use("/api/credential",credentialRoutes);
+./server.js:88:app.use("/api/identity/passport",passportRoutes);
+./server.js:95:app.use("/api/identity/passport",passportRoutes);
+./server.js:97:app.use("/api/credential",credentialRoutes);
+./server.js:99:app.use("/api/identity/passport",passportRoutes);
+./server.js:106:app.use("/api/identity/passport",passportRoutes);
+./server.js:108:app.use("/api/credential",credentialRoutes);
+./server.js:110:app.use("/api/identity/passport",passportRoutes);
+./server.js:118:app.use("/api/identity/passport",passportRoutes);
+./server.js:120:app.use("/api/credential",credentialRoutes);
+./server.js:122:app.use("/api/identity/passport",passportRoutes);
+./server.js:125:app.use("/api/identity/passport",passportRoutes);
+./server.js:127:app.use("/api/credential",credentialRoutes);
+./server.js:129:app.use("/api/identity/passport",passportRoutes);
+./server.js:132:app.use("/api/identity/passport",passportRoutes);
+./server.js:134:app.use("/api/credential",credentialRoutes);
+./server.js:136:app.use("/api/identity/passport",passportRoutes);
+./server.js:140:// Identity Engine V11.9
+./server.js:141:app.use("/api/identity/passport",passportRoutes);
+./server.js:143:app.use("/api/credential",credentialRoutes);
+./server.js:145:app.use("/api/identity/passport",passportRoutes);
+./server.js:148:    "/api/identity",
+./server.js:149:    identityRoutes
+./server.js:160:        "Sovereign Identity Engine",
+./server.js:204:app.use("/api/identity/passport",passportRoutes);
+./server.js:206:app.use("/api/credential",credentialRoutes);
+./server.js:208:app.use("/api/identity/passport",passportRoutes);
+./server.js:230:                error:"wallet address required"
+./server.js:234:        const result = await analyzeWallet(address);
+./server.js:238:            wallet:address,
+./server.js:258:        const result = await analyzeWallet(address);
+./server.js:262:            engine:"Sovereign Identity Engine V11.9",
+./server.js:263:            wallet:address,
+./server.js:280:    engine:"Sovereign Identity Engine V11.9 Enterprise",
+./server.js:283:      "Passport",
+./server.js:284:      "Credential",
+./server.js:301:`Sovereign Identity Engine V11.9 Enterprise running on ${PORT}`
+./sign-test.js:3:const PRIVATE_KEY =
+./sign-test.js:6:const wallet = new ethers.Wallet(PRIVATE_KEY);
+./sign-test.js:8:const message = "Login to Identity Engine";
+./sign-test.js:10:const signature = await wallet.signMessage(message);
+./sign-test.js:13:console.log(wallet.address);
+./walletAnalyzer.js:12:export async function alertIfHighRisk(sybilScore, wallet) {
+./walletAnalyzer.js:13:  if (sybilScore > 0.8) { // إذا كان خطر الـ Sybil مرتفع
+./walletAnalyzer.js:15:      from: '"Sovereign Identity Engine" <your-email@gmail.com>',
+./walletAnalyzer.js:18:      text: `المحفظة ${wallet} لديها تقييم خطر بنسبة ${sybilScore}`
+./profiles/0x827922686190790b37229fd06084350e74485b72.json:2:  "identityEngine": "Sovereign Identity Engine V3",
+./profiles/0x827922686190790b37229fd06084350e74485b72.json:3:  "identity": {
+./profiles/0x827922686190790b37229fd06084350e74485b72.json:4:    "wallet": "0x827922686190790b37229fd06084350e74485b72",
+./profiles/0x827922686190790b37229fd06084350e74485b72.json:9:    "tokens": 5,
+./profiles/0x827922686190790b37229fd06084350e74485b72.json:41:  "reputation": {
+./profiles/0x827922686190790b37229fd06084350e74485b72.json:44:    "sybilRisk": 10
+./api.js:2:import { analyzeWallet } from "./walletAnalyzer.js";
+./api.js:8:engine:"Sovereign Identity Engine",
+./api.js:15:app.get("/api/identity/:wallet",async(req,res)=>{
+./api.js:20:await analyzeWallet(req.params.wallet);
+./api.js:38:"🚀 Sovereign Identity API V6 :3000"
+./identity-report.json:2: "wallet":"0x...",
+./identity-report.json:7: "contracts":40
+./testRealIdentity.js:1:import { analyzeWallet } from "./walletAnalyzer.js";
+./testRealIdentity.js:3:const wallet =
+./testRealIdentity.js:10:"IDENTITY ENGINE TEST",
+./testRealIdentity.js:11:wallet
+./testRealIdentity.js:16:await analyzeWallet(wallet);
+./mailer.js:15:    from: '"Identity Engine" <ali@example.com>',
+./AnalyzerEngine.js:2:import { detectSybil } from "./analyzer/sybilDetector.js";
+./AnalyzerEngine.js:10:export async function runFullAnalysis(walletAddress) {
+./AnalyzerEngine.js:12:        console.log(`تحليل المحفظة: ${walletAddress}`);
+./AnalyzerEngine.js:13:        const activity = await analyzeActivity(walletAddress);
+./AnalyzerEngine.js:14:        const sybil = detectSybil({ activity });
+./AnalyzerEngine.js:16:        if (sybil.score > 0.8) {
+./AnalyzerEngine.js:18:                from: '"Identity Engine" <ali@example.com>',
+./AnalyzerEngine.js:21:                text: `المحفظة ${walletAddress} خطر: ${sybil.score}`
+./AnalyzerEngine.js:25:        return { score: sybil.score };
+./monitor.js:6:async function monitorWallets() {
+./monitor.js:7:    const wallets = JSON.parse(fs.readFileSync('./wallets.json', 'utf8'));
+./monitor.js:9:    for (const wallet of wallets) {
+./monitor.js:10:        const analysis = await runFullAnalysis(wallet);
+./monitor.js:14:            await executeMint(wallet.address);
+./test/webhook-test.js:1:import { analyzeTokenActivity } from "../analyzer/tokenAnalyzer.js";
+./test/webhook-test.js:3:import { calculateReputation } from "../calculateReputation/index.js";
+./test/webhook-test.js:7:const token =
+./test/webhook-test.js:8:analyzeTokenActivity(webhook);
+./test/webhook-test.js:12:buildGraph(token.graphEdges);
+./test/webhook-test.js:15:const reputation =
+./test/webhook-test.js:16:calculateReputation(token);
+./test/webhook-test.js:23:token,
+./test/webhook-test.js:25:reputation
+./test/webhook.json:2:  "eventType":"TOKEN_TRANSFER",
+./test/webhook.json:4:  "token":{
+./test/webhook.json:6:    "contract":"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+./sovereign-engine.js:83: TOKEN ANALYZER
+./sovereign-engine.js:101:function analyzeTokens(activity){
+./sovereign-engine.js:135:10**item.rawContract.decimals;
+./sovereign-engine.js:145:token:item.rawContract.address,
+./sovereign-engine.js:221: REPUTATION ENGINE
+./sovereign-engine.js:226:function reputation(transfers){
+./sovereign-engine.js:325:// PROTECTED IDENTITY TEST
+./sovereign-engine.js:345: IDENTITY ENGINE
+./sovereign-engine.js:350:function analyzeIdentity(data){
+./sovereign-engine.js:354:const tokens =
+./sovereign-engine.js:357:analyzeTokens(
+./sovereign-engine.js:366:buildGraph(tokens);
+./sovereign-engine.js:371:reputation(tokens);
+./sovereign-engine.js:378:identity:{
+./sovereign-engine.js:389:tokens,
+./sovereign-engine.js:395:reputation:rep
+./sovereign-engine.js:421:"Sovereign Identity Engine",
+./sovereign-engine.js:501:analyzeIdentity(
+./sovereign-engine.js:521:analyzeIdentity(
+./sovereign-engine.js:563:🚀 Sovereign Identity Engine V7 Running
+./saas/plans.js:10:            "wallet-analysis",
+./saas/plans.js:11:            "basic-reputation"
+./saas/plans.js:21:            "wallet-analysis",
+./saas/plans.js:22:            "sybil-detection",
+./saas/plans.js:24:            "token-analysis"
+./saas/plans.js:34:            "full-identity-engine",
+./saas/enterprise/members.js:31:    wallet,
+./saas/enterprise/members.js:43:        wallet,
+./saas/enterprise/adminRoutes.js:75:        wallet,
+./saas/enterprise/adminRoutes.js:83:        wallet,
+./saas/enterprise/data/members.json:5:    "wallet": "0x123456789",
+./saas/enterprise/data/identity-profiles.json:3:    "id": "identity-1784237756461",
+./saas/enterprise/data/identity-profiles.json:5:    "wallet": "0x123456789",
+./saas/enterprise/data/identity-profiles.json:7:    "reputation": 95,
+./saas/enterprise/data/identity-profiles.json:8:    "sybilRisk": "LOW",
+./saas/enterprise/data/identity-profiles.json:12:    "id": "identity-1784335327391",
+./saas/enterprise/data/identity-profiles.json:15:    "reputation": 0,
+./saas/enterprise/data/identity-profiles.json:16:    "sybilRisk": "LOW",
+./saas/enterprise/data/identity-profiles.json:20:    "id": "identity-1784335433103",
+./saas/enterprise/data/identity-profiles.json:23:    "reputation": 0,
+./saas/enterprise/data/identity-profiles.json:24:    "sybilRisk": "LOW",
+./saas/enterprise/data/identity-profiles.json:28:    "id": "identity-1784335665295",
+./saas/enterprise/data/identity-profiles.json:31:    "reputation": 0,
+./saas/enterprise/data/identity-profiles.json:32:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:4:    "wallet": "0x123456789",
+./saas/enterprise/data/onchain-intelligence.json:9:    "tokens": 12,
+./saas/enterprise/data/onchain-intelligence.json:10:    "reputation": 95,
+./saas/enterprise/data/onchain-intelligence.json:11:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:12:    "identity": "Verified Human",
+./saas/enterprise/data/onchain-intelligence.json:17:    "wallet": "0x123456789",
+./saas/enterprise/data/onchain-intelligence.json:22:    "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:23:    "reputation": 50,
+./saas/enterprise/data/onchain-intelligence.json:24:    "sybilRisk": "UNKNOWN",
+./saas/enterprise/data/onchain-intelligence.json:25:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:30:    "wallet": "0x5139a1de17a949f1b47D29F655067C555e765337",
+./saas/enterprise/data/onchain-intelligence.json:35:    "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:36:    "reputation": 40,
+./saas/enterprise/data/onchain-intelligence.json:37:    "sybilRisk": "UNKNOWN",
+./saas/enterprise/data/onchain-intelligence.json:38:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:43:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:48:    "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:49:    "reputation": 40,
+./saas/enterprise/data/onchain-intelligence.json:50:    "sybilRisk": "UNKNOWN",
+./saas/enterprise/data/onchain-intelligence.json:51:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:56:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:61:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:62:    "reputation": 40,
+./saas/enterprise/data/onchain-intelligence.json:63:    "sybilRisk": "UNKNOWN",
+./saas/enterprise/data/onchain-intelligence.json:64:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:69:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:74:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:75:    "reputation": 40,
+./saas/enterprise/data/onchain-intelligence.json:76:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:77:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:82:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:87:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:88:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:89:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:90:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:95:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:100:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:101:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:102:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:103:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:108:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:113:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:114:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:115:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:116:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:121:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:126:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:127:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:128:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:129:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:134:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:139:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:140:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:141:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:142:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:147:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:152:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:153:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:154:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:155:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:160:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:165:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:166:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:167:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:168:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:173:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:178:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:179:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:180:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:181:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:186:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:209:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:210:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:211:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:212:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:217:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:240:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:241:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:242:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:243:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:248:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:271:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:272:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:273:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:274:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:279:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:302:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:303:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:304:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:305:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:310:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:333:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:334:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:335:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:336:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:341:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:364:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:365:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:366:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:367:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:372:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:395:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:396:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:397:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:398:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:403:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:406:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:408:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:432:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:433:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:434:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:435:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:440:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:443:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:445:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:469:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:470:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:471:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:472:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:477:      "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:484:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:487:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:489:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:513:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:514:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:515:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:516:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:521:      "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:528:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:531:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:533:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:557:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:558:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:559:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:560:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:565:      "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:572:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:575:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:577:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:601:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:602:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:603:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:604:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:609:      "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:616:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:619:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:621:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:650:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:651:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:652:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:653:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:658:      "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:665:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:668:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:670:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:697:    "reputationProfile": {
+./saas/enterprise/data/onchain-intelligence.json:705:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:706:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:707:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:708:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:714:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:717:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:719:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:746:    "reputationProfile": {
+./saas/enterprise/data/onchain-intelligence.json:754:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:755:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:756:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:757:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:763:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/data/onchain-intelligence.json:766:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:768:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:795:    "sybilCluster": {
+./saas/enterprise/data/onchain-intelligence.json:801:    "reputationProfile": {
+./saas/enterprise/data/onchain-intelligence.json:809:    "tokens": 2,
+./saas/enterprise/data/onchain-intelligence.json:810:    "reputation": 5,
+./saas/enterprise/data/onchain-intelligence.json:811:    "sybilRisk": "LOW",
+./saas/enterprise/data/onchain-intelligence.json:812:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:818:    "wallet": "0xB6f450A4DB9144cBD917a286B1874F20B4b95248",
+./saas/enterprise/data/onchain-intelligence.json:821:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:823:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:850:    "sybilCluster": {
+./saas/enterprise/data/onchain-intelligence.json:860:        "reputation": 0,
+./saas/enterprise/data/onchain-intelligence.json:863:        "sybilRisk": "UNKNOWN"
+./saas/enterprise/data/onchain-intelligence.json:866:    "reputationProfile": {
+./saas/enterprise/data/onchain-intelligence.json:874:    "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:875:    "reputation": 0,
+./saas/enterprise/data/onchain-intelligence.json:876:    "sybilRisk": "UNKNOWN",
+./saas/enterprise/data/onchain-intelligence.json:877:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:883:    "wallet": "0xB6f450A4DB9144cBD917a286B1874F20B4b95248",
+./saas/enterprise/data/onchain-intelligence.json:886:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:888:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:915:    "sybilCluster": {
+./saas/enterprise/data/onchain-intelligence.json:923:      "walletClass": "New Wallet",
+./saas/enterprise/data/onchain-intelligence.json:927:        "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:935:        "reputation": 0,
+./saas/enterprise/data/onchain-intelligence.json:938:        "sybilRisk": "UNKNOWN"
+./saas/enterprise/data/onchain-intelligence.json:941:    "reputationProfile": {
+./saas/enterprise/data/onchain-intelligence.json:949:    "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:950:    "reputation": 0,
+./saas/enterprise/data/onchain-intelligence.json:951:    "sybilRisk": "UNKNOWN",
+./saas/enterprise/data/onchain-intelligence.json:952:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:958:    "wallet": "0xB6f450A4DB9144cBD917a286B1874F20B4b95248",
+./saas/enterprise/data/onchain-intelligence.json:961:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:963:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:990:    "sybilCluster": {
+./saas/enterprise/data/onchain-intelligence.json:998:      "walletClass": "New Wallet",
+./saas/enterprise/data/onchain-intelligence.json:1002:        "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:1010:        "reputation": 0,
+./saas/enterprise/data/onchain-intelligence.json:1013:        "sybilRisk": "UNKNOWN"
+./saas/enterprise/data/onchain-intelligence.json:1016:    "reputationProfile": {
+./saas/enterprise/data/onchain-intelligence.json:1024:    "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:1025:    "reputation": 0,
+./saas/enterprise/data/onchain-intelligence.json:1026:    "sybilRisk": "UNKNOWN",
+./saas/enterprise/data/onchain-intelligence.json:1027:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:1033:    "wallet": "0xB6f450A4DB9144cBD917a286B1874F20B4b95248",
+./saas/enterprise/data/onchain-intelligence.json:1036:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:1038:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:1072:    "sybilCluster": {
+./saas/enterprise/data/onchain-intelligence.json:1080:      "walletClass": "New Wallet",
+./saas/enterprise/data/onchain-intelligence.json:1084:        "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:1092:        "reputation": 0,
+./saas/enterprise/data/onchain-intelligence.json:1095:        "sybilRisk": "UNKNOWN"
+./saas/enterprise/data/onchain-intelligence.json:1098:    "reputationProfile": {
+./saas/enterprise/data/onchain-intelligence.json:1106:    "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:1107:    "reputation": 0,
+./saas/enterprise/data/onchain-intelligence.json:1108:    "sybilRisk": "UNKNOWN",
+./saas/enterprise/data/onchain-intelligence.json:1109:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:1115:    "wallet": "0xB6f450A4DB9144cBD917a286B1874F20B4b95248",
+./saas/enterprise/data/onchain-intelligence.json:1118:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:1120:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:1154:    "sybilCluster": {
+./saas/enterprise/data/onchain-intelligence.json:1162:      "walletClass": "New Wallet",
+./saas/enterprise/data/onchain-intelligence.json:1166:        "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:1174:        "reputation": 0,
+./saas/enterprise/data/onchain-intelligence.json:1177:        "sybilRisk": "UNKNOWN"
+./saas/enterprise/data/onchain-intelligence.json:1180:    "reputationProfile": {
+./saas/enterprise/data/onchain-intelligence.json:1188:    "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:1189:    "reputation": 0,
+./saas/enterprise/data/onchain-intelligence.json:1190:    "sybilRisk": "UNKNOWN",
+./saas/enterprise/data/onchain-intelligence.json:1191:    "identity": "Unverified",
+./saas/enterprise/data/onchain-intelligence.json:1197:    "wallet": "0xB6f450A4DB9144cBD917a286B1874F20B4b95248",
+./saas/enterprise/data/onchain-intelligence.json:1200:    "aiIdentity": {
+./saas/enterprise/data/onchain-intelligence.json:1202:      "walletType": "EOA",
+./saas/enterprise/data/onchain-intelligence.json:1236:    "sybilCluster": {
+./saas/enterprise/data/onchain-intelligence.json:1244:      "walletClass": "New Wallet",
+./saas/enterprise/data/onchain-intelligence.json:1248:        "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:1256:        "reputation": 0,
+./saas/enterprise/data/onchain-intelligence.json:1259:        "sybilRisk": "UNKNOWN"
+./saas/enterprise/data/onchain-intelligence.json:1262:    "reputationProfile": {
+./saas/enterprise/data/onchain-intelligence.json:1270:    "tokens": 0,
+./saas/enterprise/data/onchain-intelligence.json:1271:    "reputation": 0,
+./saas/enterprise/data/onchain-intelligence.json:1272:    "sybilRisk": "UNKNOWN",
+./saas/enterprise/data/onchain-intelligence.json:1273:    "identity": "Unverified",
+./saas/enterprise/data/graph.json:3:    "wallet": "0x1111111111166b7fe7bd91427724b487980afc69",
+./saas/enterprise/identity/profiles.js:10:        wallet:data.wallet,
+./saas/enterprise/identity/profiles.js:14:        reputation:0,
+./saas/enterprise/identity/profiles.js:41:export function getProfile(wallet){
+./saas/enterprise/identity/profiles.js:44:        p=>p.wallet===wallet
+./saas/enterprise/identity/routes.js:4: createIdentityProfile,
+./saas/enterprise/identity/routes.js:5: getIdentityByOrg
+./saas/enterprise/identity/routes.js:10:export const identityRoutes =
+./saas/enterprise/identity/routes.js:15:identityRoutes.post(
+./saas/enterprise/identity/routes.js:21: createIdentityProfile(
+./saas/enterprise/identity/routes.js:33:identityRoutes.get(
+./saas/enterprise/identity/routes.js:39:    getIdentityByOrg(
+./saas/enterprise/identity/profile.js:3:const FILE="./saas/enterprise/data/identity-profiles.json";
+./saas/enterprise/identity/profile.js:27:export function createIdentityProfile(data){
+./saas/enterprise/identity/profile.js:34:        id:"identity-"+Date.now(),
+./saas/enterprise/identity/profile.js:38:        wallet:data.wallet,
+./saas/enterprise/identity/profile.js:42:        reputation:data.reputation || 0,
+./saas/enterprise/identity/profile.js:44:        sybilRisk:data.sybilRisk || "LOW",
+./saas/enterprise/identity/profile.js:62:export function getIdentityByOrg(orgId){
+./saas/enterprise/identity/intelligence.js:2:import {createVerifiableCredential} from "./verifiableCredential.js";
+./saas/enterprise/identity/intelligence.js:3:import {createCredential} from "./credentialEngine.js";
+./saas/enterprise/identity/intelligence.js:6:import { classifyIdentity } from "./aiClassifier.js";
+./saas/enterprise/identity/intelligence.js:33:export function analyzeWalletIdentity(data){
+./saas/enterprise/identity/intelligence.js:43:        wallet:data.wallet,
+./saas/enterprise/identity/intelligence.js:49:        aiIdentity:data.aiIdentity,
+./saas/enterprise/identity/intelligence.js:59:        sybilCluster:{
+./saas/enterprise/identity/intelligence.js:67:                data.sybilRisk || "UNKNOWN",
+./saas/enterprise/identity/intelligence.js:77:                (data.reputation || 0)
+./saas/enterprise/identity/intelligence.js:84:                ((data.reputation || 0)+(data.graphScore || 0)+(data.confidence || 0)) >= 80
+./saas/enterprise/identity/intelligence.js:87:                ((data.reputation || 0)+(data.graphScore || 0)+(data.confidence || 0)) >= 40
+./saas/enterprise/identity/intelligence.js:93:                reputation:data.reputation || 0,
+./saas/enterprise/identity/intelligence.js:96:                sybilRisk:data.sybilRisk || "UNKNOWN"
+./saas/enterprise/identity/intelligence.js:100:        reputationProfile:{
+./saas/enterprise/identity/intelligence.js:101:            score:data.reputation || 0,
+./saas/enterprise/identity/intelligence.js:105:                data.aiIdentity?.confidence ||
+./saas/enterprise/identity/intelligence.js:108:                data.reputation >= 80
+./saas/enterprise/identity/intelligence.js:111:                data.reputation >= 40
+./saas/enterprise/identity/intelligence.js:121:        tokens:data.tokens || 0,
+./saas/enterprise/identity/intelligence.js:123:        reputation:data.reputation || 0,
+./saas/enterprise/identity/intelligence.js:125:        sybilRisk:data.sybilRisk || "UNKNOWN",
+./saas/enterprise/identity/intelligence.js:127:        identity:
+./saas/enterprise/identity/intelligence.js:128:            data.reputation >= 80
+./saas/enterprise/identity/intelligence.js:135:                data.aiIdentity?.confidence ||
+./saas/enterprise/identity/intelligence.js:152:    previousReputation:data.reputation || 0,
+./saas/enterprise/identity/intelligence.js:153:    previousRisk:data.sybilRisk || "UNKNOWN",
+./saas/enterprise/identity/intelligence.js:159:      reputationChange:0,
+./saas/enterprise/identity/intelligence.js:166:        previousScore:data.reputation || 0,
+./saas/enterprise/identity/intelligence.js:167:        currentScore:data.reputation || 0,
+./saas/enterprise/identity/intelligence.js:174:passport:{
+./saas/enterprise/identity/intelligence.js:177:      data.reputation >= 80
+./saas/enterprise/identity/intelligence.js:180:    identityScore:data.confidence || 0,
+./saas/enterprise/identity/intelligence.js:181:    reputation:data.reputation || 0,
+./saas/enterprise/identity/intelligence.js:182:    risk:data.sybilRisk || "UNKNOWN",
+./saas/enterprise/identity/intelligence.js:187:          (data.reputation || 0) +
+./saas/enterprise/identity/intelligence.js:202:    type:"Wallet Identity Proof",
+./saas/enterprise/identity/intelligence.js:203:    issuer:"Sovereign Identity Engine",
+./saas/enterprise/identity/intelligence.js:205:      walletType:data.aiIdentity?.walletType || "UNKNOWN",
+./saas/enterprise/identity/intelligence.js:206:      activity:data.behavior?.walletClass || "UNKNOWN",
+./saas/enterprise/identity/intelligence.js:207:      reputation:data.reputation || 0,
+./saas/enterprise/identity/intelligence.js:208:      risk:data.sybilRisk || "UNKNOWN",
+./saas/enterprise/identity/intelligence.js:218:      .update(data.wallet + JSON.stringify(data))
+./saas/enterprise/identity/intelligence.js:223:credential:{
+./saas/enterprise/identity/intelligence.js:224:    credentialId:"cred-"+Date.now(),
+./saas/enterprise/identity/intelligence.js:225:    type:"Sovereign Identity Credential",
+./saas/enterprise/identity/intelligence.js:226:    subject:data.wallet,
+./saas/enterprise/identity/intelligence.js:228:        identity:data.aiIdentity?.category || "UNKNOWN",
+./saas/enterprise/identity/intelligence.js:229:        reputation:data.reputation || 0,
+./saas/enterprise/identity/intelligence.js:231:        risk:data.sybilRisk || "UNKNOWN"
+./saas/enterprise/identity/intelligence.js:237:    credential:createCredential(data),
+./saas/enterprise/identity/intelligence.js:238:      verifiableCredential:createVerifiableCredential(data),
+./saas/enterprise/identity/intelligence.js:243:credential:createCredential(data),
+./saas/enterprise/identity/intelligence.js:244:      verifiableCredential:createVerifiableCredential(data),
+./saas/enterprise/identity/intelligence.js:259:export function getWalletIntelligence(wallet){
+./saas/enterprise/identity/intelligence.js:262:        x=>x.wallet===wallet
+./saas/enterprise/identity/intelligenceRoutes.js:4: analyzeWalletIdentity,
+./saas/enterprise/identity/intelligenceRoutes.js:5: getWalletIntelligence
+./saas/enterprise/identity/intelligenceRoutes.js:18:        analyzeWalletIdentity(req.body)
+./saas/enterprise/identity/intelligenceRoutes.js:25:"/:wallet",
+./saas/enterprise/identity/intelligenceRoutes.js:29:        getWalletIntelligence(
+./saas/enterprise/identity/intelligenceRoutes.js:30:            req.params.wallet
+./saas/enterprise/identity/intelligenceRoutes.js:40:"/attestation/:wallet",
+./saas/enterprise/identity/intelligenceRoutes.js:44: getWalletIntelligence(
+./saas/enterprise/identity/intelligenceRoutes.js:45: req.params.wallet
+./saas/enterprise/identity/intelligenceRoutes.js:51:     message:"No identity found"
+./saas/enterprise/identity/intelligenceRoutes.js:60:   wallet:latest.wallet,
+./saas/enterprise/identity/intelligenceRoutes.js:62:   passport:latest.passport
+./saas/enterprise/identity/scanRoutes.js:2:import { analyzeWalletIdentity } from "./intelligence.js";
+./saas/enterprise/identity/scanRoutes.js:3:import { realScanWallet } from "./realScanner.js";
+./saas/enterprise/identity/scanRoutes.js:7:async function scanWallet(wallet){
+./saas/enterprise/identity/scanRoutes.js:9:    return await realScanWallet(wallet);
+./saas/enterprise/identity/scanRoutes.js:17:    const {wallet,orgId}=req.body;
+./saas/enterprise/identity/scanRoutes.js:19:    const data = await scanWallet(wallet);
+./saas/enterprise/identity/scanRoutes.js:21:    const result = analyzeWalletIdentity({
+./saas/enterprise/identity/realScanner.js:4:import { detectSybil } from "./sybilDetector.js";
+./saas/enterprise/identity/realScanner.js:5:import { calculateReputation } from "./reputationEngine.js";
+./saas/enterprise/identity/realScanner.js:7:import { classifyIdentity } from "./aiClassifier.js";
+./saas/enterprise/identity/realScanner.js:18:export async function realScanWallet(wallet){
+./saas/enterprise/identity/realScanner.js:21:    await provider.getTransactionCount(wallet);
+./saas/enterprise/identity/realScanner.js:25:    await provider.getBalance(wallet);
+./saas/enterprise/identity/realScanner.js:28:    const events = await scanEvents(wallet);
+./saas/enterprise/identity/realScanner.js:30:      const chains = await scanMultiChain(wallet);
+./saas/enterprise/identity/realScanner.js:34:      const sybil = detectSybil(wallet);
+./saas/enterprise/identity/realScanner.js:38:        tokens:events.tokens,
+./saas/enterprise/identity/realScanner.js:39:        connections:sybil.connections
+./saas/enterprise/identity/realScanner.js:42:    const reputation = calculateReputation({
+./saas/enterprise/identity/realScanner.js:44:        tokens:events.tokens,
+./saas/enterprise/identity/realScanner.js:45:        connections:sybil.connections,
+./saas/enterprise/identity/realScanner.js:49:            (sybil.connections||0)*10 +
+./saas/enterprise/identity/realScanner.js:50:            (events.tokens||0)*5 +
+./saas/enterprise/identity/realScanner.js:56:            connections:sybil.connections||0,
+./saas/enterprise/identity/realScanner.js:64:        sybilRisk:sybil.sybilRisk
+./saas/enterprise/identity/realScanner.js:67:    const aiIdentity = {
+./saas/enterprise/identity/realScanner.js:69:          walletType: "EOA",
+./saas/enterprise/identity/realScanner.js:70:          riskLevel: sybil.sybilRisk,
+./saas/enterprise/identity/realScanner.js:71:          confidence: Math.min(100, txCount * 10 + events.tokens * 5)
+./saas/enterprise/identity/realScanner.js:78:        wallet,
+./saas/enterprise/identity/realScanner.js:87:        tokens:0,
+./saas/enterprise/identity/realScanner.js:89:        connections:sybil.connections,
+./saas/enterprise/identity/realScanner.js:93:            (sybil.connections||0)*10 +
+./saas/enterprise/identity/realScanner.js:94:            (events.tokens||0)*5 +
+./saas/enterprise/identity/realScanner.js:100:            connections:sybil.connections||0,
+./saas/enterprise/identity/realScanner.js:109:        sybilScore:sybil.sybilScore,
+./saas/enterprise/identity/realScanner.js:111:        tokens:events.tokens,
+./saas/enterprise/identity/realScanner.js:116:        reputation:reputation.reputation,
+./saas/enterprise/identity/realScanner.js:118:        trustLevel:reputation.trustLevel,
+./saas/enterprise/identity/realScanner.js:120:        sybilRisk:sybil.sybilRisk,
+./saas/enterprise/identity/realScanner.js:122:        identity:reputation.identity,
+./saas/enterprise/identity/realScanner.js:124:          aiIdentity
+./saas/enterprise/identity/eventScanner.js:14:async function getLogsSafe(wallet, fromBlock, toBlock, topic){
+./saas/enterprise/identity/eventScanner.js:58:export async function scanEvents(wallet){
+./saas/enterprise/identity/eventScanner.js:61:    ethers.getAddress(wallet);
+./saas/enterprise/identity/eventScanner.js:96:    const tokenSet =
+./saas/enterprise/identity/eventScanner.js:111:        tokens:
+./saas/enterprise/identity/eventScanner.js:112:        tokenSet.size,
+./saas/enterprise/identity/eventScanner.js:115:        tokenSet.size
+./saas/enterprise/identity/graphBuilder.js:30:    wallet,
+./saas/enterprise/identity/graphBuilder.js:38:        wallet,
+./saas/enterprise/identity/graphBuilder.js:53:export function getConnections(wallet){
+./saas/enterprise/identity/graphBuilder.js:58:        x=>x.wallet===wallet
+./saas/enterprise/identity/graphRoutes.js:17: wallet,
+./saas/enterprise/identity/graphRoutes.js:23: wallet,
+./saas/enterprise/identity/graphRoutes.js:36:"/:wallet",
+./saas/enterprise/identity/graphRoutes.js:41:   req.params.wallet
+./saas/enterprise/identity/sybilDetector.js:6:export function detectSybil(wallet){
+./saas/enterprise/identity/sybilDetector.js:9:    getConnections(wallet);
+./saas/enterprise/identity/sybilDetector.js:53:        sybilScore:score,
+./saas/enterprise/identity/sybilDetector.js:55:        sybilRisk:risk
+./saas/enterprise/identity/reputationEngine.js:1:export function calculateReputation(data){
+./saas/enterprise/identity/reputationEngine.js:15:    // Token activity
+./saas/enterprise/identity/reputationEngine.js:16:    if(data.tokens > 20)
+./saas/enterprise/identity/reputationEngine.js:18:    else if(data.tokens > 5)
+./saas/enterprise/identity/reputationEngine.js:31:    // Sybil penalty
+./saas/enterprise/identity/reputationEngine.js:32:    if(data.sybilRisk === "HIGH")
+./saas/enterprise/identity/reputationEngine.js:40:    let identity =
+./saas/enterprise/identity/reputationEngine.js:45:        identity = "Verified Human";
+./saas/enterprise/identity/reputationEngine.js:48:        identity = "Active User";
+./saas/enterprise/identity/reputationEngine.js:53:        reputation:score,
+./saas/enterprise/identity/reputationEngine.js:55:        identity,
+./saas/enterprise/identity/chains/multiChain.js:20:export async function scanMultiChain(wallet){
+./saas/enterprise/identity/chains/multiChain.js:34:            await provider.getTransactionCount(wallet);
+./saas/enterprise/identity/chains/multiChain.js:38:            await provider.getBalance(wallet);
+./saas/enterprise/identity/aiClassifier.js:1:export function classifyIdentity(data){
+./saas/enterprise/identity/aiClassifier.js:4:    let walletType="EOA";
+./saas/enterprise/identity/aiClassifier.js:13:    if(data.tokens > 50){
+./saas/enterprise/identity/aiClassifier.js:21:    if(data.sybilRisk==="HIGH"){
+./saas/enterprise/identity/aiClassifier.js:26:    if(data.sybilRisk==="LOW" && data.transactions > 20){
+./saas/enterprise/identity/aiClassifier.js:35:            (data.tokens || 0)
+./saas/enterprise/identity/aiClassifier.js:41:        walletType,
+./saas/enterprise/identity/behaviorEngine.js:11:if(data.tokens>2)
+./saas/enterprise/identity/behaviorEngine.js:17:let type="New Wallet";
+./saas/enterprise/identity/behaviorEngine.js:26:type="Growing Wallet";
+./saas/enterprise/identity/behaviorEngine.js:30:walletClass:type,
+./saas/enterprise/identity/behaviorEngine.js:34:tokens:data.tokens,
+./saas/enterprise/identity/entityAnalyzer.js:8:    if(data.tokens>0)
+./saas/enterprise/identity/entityAnalyzer.js:9:        entities.push("TOKEN_HOLDER");
+./saas/enterprise/identity/entityAnalyzer.js:12:        entities.push("NETWORKED_WALLET");
+./saas/enterprise/identity/entityAnalyzer.js:14:    if(data.contracts && data.contracts>0)
+./saas/enterprise/identity/entityAnalyzer.js:15:        entities.push("CONTRACT_INTERACTOR");
+./saas/enterprise/identity/timelineAnalyzer.js:19:        walletAgeDays:
+./saas/enterprise/identity/timelineAnalyzer.js:20:            data.walletAgeDays || 0,
+./saas/enterprise/identity/credentialEngine.js:3:export function createCredential(data){
+./saas/enterprise/identity/credentialEngine.js:6: type:"SovereignIdentityCredential",
+./saas/enterprise/identity/credentialEngine.js:7: wallet:data.wallet,
+./saas/enterprise/identity/credentialEngine.js:8: identity:data.identity || "Unverified",
+./saas/enterprise/identity/credentialEngine.js:9: reputation:data.reputation || 0,
+./saas/enterprise/identity/credentialEngine.js:11: risk:data.sybilRisk || "UNKNOWN",
+./saas/enterprise/identity/credentialEngine.js:24: credentialId:"cred-"+Date.now(),
+./saas/enterprise/identity/credentialRoutes.js:3:export const credentialRoutes = express.Router();
+./saas/enterprise/identity/credentialRoutes.js:5:credentialRoutes.post("/verify", async(req,res)=>{
+./saas/enterprise/identity/credentialRoutes.js:7:const {credential}=req.body;
+./saas/enterprise/identity/credentialRoutes.js:9:if(!credential){
+./saas/enterprise/identity/credentialRoutes.js:12:  error:"Missing credential"
+./saas/enterprise/identity/credentialRoutes.js:17:credential.proof &&
+./saas/enterprise/identity/credentialRoutes.js:18:credential.proof.verified === true;
+./saas/enterprise/identity/credentialRoutes.js:22: credentialId:credential.credentialId,
+./saas/enterprise/identity/credentialRoutes.js:23: wallet:credential.payload?.wallet || null,
+./saas/enterprise/identity/credentialRoutes.js:24: identity:credential.payload?.identity || "UNKNOWN",
+./saas/enterprise/identity/credentialRoutes.js:25: reputation:credential.payload?.reputation || 0,
+./saas/enterprise/identity/credentialRoutes.js:26: risk:credential.payload?.risk || "UNKNOWN",
+./saas/enterprise/identity/credentialRegistry.js:3:const FILE="./saas/enterprise/data/credentials.json";
+./saas/enterprise/identity/credentialRegistry.js:14:export function registerCredential(credential){
+./saas/enterprise/identity/credentialRegistry.js:18:list.push(credential);
+./saas/enterprise/identity/credentialRegistry.js:22:return credential;
+./saas/enterprise/identity/credentialRegistry.js:26:export function getCredentials(wallet){
+./saas/enterprise/identity/credentialRegistry.js:29: c=>c.payload?.wallet===wallet
+./saas/enterprise/identity/passportRoutes.js:3:import {signPassport} from "./passportSigner.js";
+./saas/enterprise/identity/passportRoutes.js:4:import {getCredentials} from "./credentialRegistry.js";
+./saas/enterprise/identity/passportRoutes.js:5:import {getWalletIntelligence} from "./intelligence.js";
+./saas/enterprise/identity/passportRoutes.js:7:export const passportRoutes = express.Router();
+./saas/enterprise/identity/passportRoutes.js:9:passportRoutes.get("/:wallet",(req,res)=>{
+./saas/enterprise/identity/passportRoutes.js:11:const wallet=req.params.wallet;
+./saas/enterprise/identity/passportRoutes.js:13:const intelligence=getWalletIntelligence(wallet);
+./saas/enterprise/identity/passportRoutes.js:15:const credentials=getCredentials(wallet);
+./saas/enterprise/identity/passportRoutes.js:18: wallet,
+./saas/enterprise/identity/passportRoutes.js:19: did:createDID(wallet),
+./saas/enterprise/identity/passportRoutes.js:20: passport:{
+./saas/enterprise/identity/passportRoutes.js:21:  credentials,
+./saas/enterprise/identity/passportRoutes.js:24:  signature:signPassport({
+./saas/enterprise/identity/passportRoutes.js:25:   wallet,
+./saas/enterprise/identity/passportRoutes.js:26:   credentials,
+./saas/enterprise/identity/passportSigner.js:3:export function signPassport(passport){
+./saas/enterprise/identity/passportSigner.js:5:const payload=JSON.stringify(passport);
+./saas/enterprise/identity/didResolver.js:1:export function createDID(wallet){
+./saas/enterprise/identity/didResolver.js:4: did:"did:sovereign:"+wallet.toLowerCase(),
+./saas/enterprise/identity/didResolver.js:6: controller:wallet,
+./saas/enterprise/identity/verifiableCredential.js:3:export function createVerifiableCredential(data){
+./saas/enterprise/identity/verifiableCredential.js:5:const credential={
+./saas/enterprise/identity/verifiableCredential.js:7:  "https://www.w3.org/2018/credentials/v1"
+./saas/enterprise/identity/verifiableCredential.js:10:  "VerifiableCredential",
+./saas/enterprise/identity/verifiableCredential.js:11:  "SovereignIdentityCredential"
+./saas/enterprise/identity/verifiableCredential.js:16: credentialSubject:{
+./saas/enterprise/identity/verifiableCredential.js:17:  id:"did:sovereign:"+data.wallet.toLowerCase(),
+./saas/enterprise/identity/verifiableCredential.js:18:  wallet:data.wallet,
+./saas/enterprise/identity/verifiableCredential.js:19:  identity:data.identity || "Unverified",
+./saas/enterprise/identity/verifiableCredential.js:20:  reputation:data.reputation || 0,
+./saas/enterprise/identity/verifiableCredential.js:21:  risk:data.sybilRisk || "UNKNOWN",
+./saas/enterprise/identity/verifiableCredential.js:28:.update(JSON.stringify(credential))
+./saas/enterprise/identity/verifiableCredential.js:31:credential.proof={
+./saas/enterprise/identity/verifiableCredential.js:37:return credential;
+./saas/enterprise/identity/credentialStatus.js:3:const FILE="./saas/enterprise/data/credential-status.json";
+./saas/enterprise/identity/credentialStatus.js:33: credentialId:id,
+./saas/enterprise/identity/credentialStatus.js:47:export function revokeCredential(id,reason){
+./saas/enterprise/identity/credentialStatus.js:52: x=>x.credentialId===id
+./saas/enterprise/identity/credentialStatus.js:70:export function getCredentialStatus(id){
+./saas/enterprise/identity/credentialStatus.js:73: x=>x.credentialId===id
+./saas/enterprise/identity/trustGraph.js:61:export function calculateTrust(wallet){
+./saas/enterprise/identity/trustGraph.js:66: e=>e.source===wallet || e.target===wallet
+./saas/enterprise/identity/trustGraph.js:76: wallet,
+./saas/enterprise/identity/federation.js:49:export function federateIdentity(orgA,orgB,trust){
+./saas/storage/data/members.json:5:    "wallet": "0x123456789",
+./calculateReputation.js:2:export function calculateReputation({
+./calculateReputation.js:4:    tokens = [],
+./calculateReputation.js:5:    sybil = {}
+./calculateReputation.js:16:    if(tokens.length){
+./calculateReputation.js:17:        score += tokens.length * 5;
+./calculateReputation.js:21:    if(sybil.score){
+./calculateReputation.js:22:        score -= sybil.score;
+./calculateReputation.js:26:    let label = "New Wallet";
+./calculateReputation.js:44:            sybil.score > 50
+./intelligence.js:1:// saas/enterprise/identity/intelligence.js
+./intelligence.js:3:function calculateIdentityScore(walletData) {
+./intelligence.js:7:    if (walletData.transactionCount < 10) riskScore += 30; // نشاط منخفض
+./intelligence.js:8:    if (walletData.walletAgeDays < 30) riskScore += 40;     // محفظة حديثة
+./intelligence.js:15:        reputation: 100 - riskScore,
+./intelligence.js:22:export { calculateIdentityScore };
+./gateway.js:3:import { analyzeWallet } from "./analyzer/walletAnalyzer.js";
+./gateway.js:9:app.post("/api/v1/identity/analyze", authorize, async (req,res)=>{
+./gateway.js:13:        const { wallet } = req.body;
+./gateway.js:15:        if(!wallet){
+./gateway.js:17:                error:"Wallet address required"
+./gateway.js:21:        const identity = await analyzeWallet(wallet);
+./gateway.js:25:            wallet,
+./gateway.js:26:            identity,
+./package.json:2:  "name": "sovereign-identity-engine",
+./package-lock.json:2:  "name": "sovereign-identity-engine",
+./package-lock.json:8:      "name": "sovereign-identity-engine",
+./indexer/chunkScanner.js:12:export async function scanHistoricalLogs(wallet){
+./indexer/chunkScanner.js:27:        wallet.toLowerCase()
+./indexer/chunkScanner.js:37:    let contracts = new Set();
+./indexer/chunkScanner.js:72:                contracts.add(
+./indexer/chunkScanner.js:105:        contractsUsed:
+./indexer/chunkScanner.js:106:            contracts.size,
+./indexer/chunkScanner.js:108:        contracts:
+./indexer/chunkScanner.js:109:            [...contracts]

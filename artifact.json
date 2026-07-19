@@ -1,0 +1,16 @@
+{
+  "gap_id": "gap-nano-nft-first-support-2025",
+  "timestamp": "2025-07-28T02:30:00Z",
+  "identity": "Ali.cb.id",
+  "artifact": {
+    "title": "أول توقيع أو دعم مالي لصورة محرر nano الفنية",
+    "description": "Gap Artifact generated from Sovereign Identity Engine",
+    "signature": "Ali.cb.id"
+  },
+  "verification": {
+    "confirmed": true,
+    "txHash": "0x70ce91d28dc2d2e642d1850f52ea4be56005fa67cab3e94a835a7bd400809557",
+    "blockNumber": 25562748,
+    "network": "Ethereum"
+  }
+}

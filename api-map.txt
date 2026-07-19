@@ -1,0 +1,60 @@
+analyzer/walletAnalyzer.js:export async function analyzeWallet(wallet){
+analyzer/baseIndexer.js:export async function indexWallet(wallet){
+analyzer/baseIndexer.js:export async function getBaseWalletData(wallet){
+analyzer/baseActivity.js:export async function analyzeActivity(wallet){
+analyzer/tokenScanner.js:export async function scanTokens(
+analyzer/graphBuilder.js:export function buildGraph(walletData){
+analyzer/sybilDetector.js:export function detectSybil(data){
+analyzer/baseTransactions.js:export async function scanBaseTransactions(wallet){
+analyzer/baseTransactions.js:export const scanTransactions =
+analyzer/walletAge.js:export async function getWalletAge(wallet){
+analyzer/baseLogScanner.js:export async function scanBaseLogs(wallet){
+analyzer/baseLogScanner.js:export async function scanLogs(wallet){
+analyzer/contractAnalyzer.js:export async function analyzeContract(address){
+analyzer/nftSecurity.js:module.exports={
+analyzer/transactionScanner.js:export async function scanTransactions(wallet){
+analyzer/transactionScanner.js:export const scanBaseTransactions =
+analyzer/nativeScanner.js:export async function scanNative(wallet){
+analyzer/addressAnalyzer.js:export async function analyzeAddress(wallet){
+analyzer/transactionHistory.js:export async function scanTransactionHistory(wallet){
+saas/enterprise/identity/profiles.js:export function createProfile(data){
+saas/enterprise/identity/profiles.js:export function getProfiles(orgId){
+saas/enterprise/identity/profiles.js:export function getProfile(wallet){
+saas/enterprise/identity/routes.js:export const identityRoutes =
+saas/enterprise/identity/profile.js:export function createIdentityProfile(data){
+saas/enterprise/identity/profile.js:export function getIdentityByOrg(orgId){
+saas/enterprise/identity/intelligence.js:export function analyzeWalletIdentity(data){
+saas/enterprise/identity/intelligence.js:export function getWalletIntelligence(wallet){
+saas/enterprise/identity/intelligenceRoutes.js:export const intelligenceRoutes =
+saas/enterprise/identity/intelligenceRoutes.js:export const attestationRoutes = express.Router();
+saas/enterprise/identity/scanRoutes.js:export const scanRoutes = express.Router();
+saas/enterprise/identity/realScanner.js:export async function realScanWallet(wallet){
+saas/enterprise/identity/eventScanner.js:export async function scanEvents(wallet){
+saas/enterprise/identity/graphBuilder.js:export function addGraphEdge(
+saas/enterprise/identity/graphBuilder.js:export function getConnections(wallet){
+saas/enterprise/identity/graphRoutes.js:export const graphRoutes =
+saas/enterprise/identity/sybilDetector.js:export function detectSybil(wallet){
+saas/enterprise/identity/reputationEngine.js:export function calculateReputation(data){
+saas/enterprise/identity/chains/multiChain.js:export async function scanMultiChain(wallet){
+saas/enterprise/identity/aiClassifier.js:export function classifyIdentity(data){
+saas/enterprise/identity/behaviorEngine.js:export function analyzeBehavior(data){
+saas/enterprise/identity/entityAnalyzer.js:export function analyzeEntities(data){
+saas/enterprise/identity/timelineAnalyzer.js:export function analyzeTimeline(data){
+saas/enterprise/identity/credentialEngine.js:export function createCredential(data){
+saas/enterprise/identity/credentialRoutes.js:export const credentialRoutes = express.Router();
+saas/enterprise/identity/credentialRegistry.js:export function registerCredential(credential){
+saas/enterprise/identity/credentialRegistry.js:export function getCredentials(wallet){
+saas/enterprise/identity/passportRoutes.js:export const passportRoutes = express.Router();
+saas/enterprise/identity/passportSigner.js:export function signPassport(passport){
+saas/enterprise/identity/didResolver.js:export function createDID(wallet){
+saas/enterprise/identity/didResolver.js:export function resolveDID(did){
+saas/enterprise/identity/verifiableCredential.js:export function createVerifiableCredential(data){
+saas/enterprise/identity/credentialStatus.js:export function registerStatus(id){
+saas/enterprise/identity/credentialStatus.js:export function revokeCredential(id,reason){
+saas/enterprise/identity/credentialStatus.js:export function getCredentialStatus(id){
+saas/enterprise/identity/trustGraph.js:export function addTrustRelation(source,target,score){
+saas/enterprise/identity/trustGraph.js:export function getTrustGraph(){
+saas/enterprise/identity/trustGraph.js:export function calculateTrust(wallet){
+saas/enterprise/identity/federation.js:export function registerOrganization(orgId,name){
+saas/enterprise/identity/federation.js:export function federateIdentity(orgA,orgB,trust){
+saas/enterprise/identity/federation.js:export function getFederation(){

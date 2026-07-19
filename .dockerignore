@@ -1,0 +1,6 @@
+node_modules
+.env
+engine.log
+gateway.log
+.git
+*.log

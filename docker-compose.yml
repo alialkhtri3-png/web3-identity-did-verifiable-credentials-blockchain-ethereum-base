@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+
+  sovereign-engine:
+    build: .
+    container_name: sovereign-identity-engine-v12
+    restart: always
+    ports:
+      - "3001:3001"
+    environment:
+      NODE_ENV: production
+    volumes:
+      - ./saas/storage:/app/saas/storage

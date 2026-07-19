@@ -1,0 +1,35 @@
+[
+  {
+    "id": "identity-1784237756461",
+    "orgId": "org-1784237615048",
+    "wallet": "0x123456789",
+    "role": "ADMIN",
+    "reputation": 95,
+    "sybilRisk": "LOW",
+    "createdAt": "2026-07-16T21:35:56.461Z"
+  },
+  {
+    "id": "identity-1784335327391",
+    "orgId": "sovereign-test",
+    "role": "USER",
+    "reputation": 0,
+    "sybilRisk": "LOW",
+    "createdAt": "2026-07-18T00:42:07.391Z"
+  },
+  {
+    "id": "identity-1784335433103",
+    "orgId": "sovereign-engine",
+    "role": "USER",
+    "reputation": 0,
+    "sybilRisk": "LOW",
+    "createdAt": "2026-07-18T00:43:53.103Z"
+  },
+  {
+    "id": "identity-1784335665295",
+    "orgId": "sovereign-engine",
+    "role": "USER",
+    "reputation": 0,
+    "sybilRisk": "LOW",
+    "createdAt": "2026-07-18T00:47:45.295Z"
+  }
+]

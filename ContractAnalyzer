@@ -1,0 +1,36 @@
+// 1. استبدل require بـ import في الأعلى
+import { ContractAnalyzer } from "./contractAnalyzer.js"; // تأكد من إضافة الامتداد .js
+
+// 2. داخل دالة analyzeWallet، استخدم الكلاس مباشرة
+export async function analyzeWallet(wallet) {
+    if (!ethers.isAddress(wallet)) {
+        throw new Error("Invalid wallet address");
+    }
+
+    const contractAnalyzer = new ContractAnalyzer();
+    // يجب تعريف activity قبل استخدامه في تحليل العقود
+    const activity = await analyzeActivity(wallet);
+    const contracts = contractAnalyzer.analyze(activity.transactions);
+
+    // ... باقي الكود الخاص بك ...
+
+    // 3. إصلاح الـ object في نهاية الدالة (الجزء الذي كان يسبب الخطأ)
+    return {
+        wallet,
+        network: "Base",
+        balance: base.balance,
+        activity: finalActivity,
+        tokens: tokens.tokens,
+        graph,
+        reputation,
+        sybil,
+        chain: {
+            chainId: 8453,
+            latestBlock: "latest" // تأكد من وضع القيمة هنا
+        },
+        engine: {
+            status: "active",
+            version: "1.9"
+        }
+    };
+}

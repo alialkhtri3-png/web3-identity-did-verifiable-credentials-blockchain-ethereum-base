@@ -1,0 +1,21 @@
+{
+  "name": "sovereign-identity-engine",
+  "version": "12.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@ensdomains/ensjs": "^4.3.1",
+    "bitcoinjs-lib": "^7.0.1",
+    "cors": "^2.8.6",
+    "csv-parser": "^3.2.1",
+    "dotenv": "^17.4.2",
+    "electrum-client": "^0.0.6",
+    "ethers": "^6.17.0",
+    "express": "^5.2.1",
+    "pinata-web3": "^0.5.4",
+    "qrcode": "^1.5.4",
+    "sql.js": "^1.14.1"
+  }
+}

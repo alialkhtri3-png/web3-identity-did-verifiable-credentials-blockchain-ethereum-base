@@ -1,0 +1,23 @@
+{
+  "gap_id": "gap-nano-nft-first-support-2025",
+  "timestamp": "2026-07-18T23:09:46.170Z",
+  "identity": "Ali.cb.id",
+  "artifact": {
+    "title": "Gap Nano NFT Support Artifact",
+    "description": "Sovereign Identity Engine Proof Artifact",
+    "signature": "0x1ffde5d6040c52dd099d43ff63793c8ed1e4df1cf71e11aa5e31b2dd38fe9c9623bc3aa84471fb4268752ca52f65c9659adce4d7e8dd3d78e5baad7b915a6be21b"
+  },
+  "verification": {
+    "confirmed": true,
+    "chain": "Ethereum",
+    "txHash": "0x70ce91d28dc2d2e642d1850f52ea4be56005fa67cab3e94a835a7bd400809557"
+  },
+  "storage": {
+    "type": "IPFS",
+    "cid": null
+  },
+  "proof": {
+    "method": "wallet-signature",
+    "wallet": "0xd02dEaDa9C92724eC1c55a74Ac6332C82594244A"
+  }
+}
