@@ -1,41 +1,38 @@
 # Sovereign Identity Engine Roadmap
 
-## Completed
+## V13.x Current
 
-### V13.x
 - Wallet Intelligence
 - Identity Score Engine
-- Sovereign Passport
 - Verifiable Credentials
-- ECDSA Signing
+- ECDSA Credential Signing
 - Credential Verification
-- Reputation Engine
+- Base Network Scanner
 - Graph Intelligence
-- Base Mainnet Scanner
-- Public Demo
 
 
-## V14 Roadmap
+## V14 Identity Protocol
 
-### Identity Infrastructure
+Planned:
+
 - DID Support
-- Multi-chain Identity
-- Identity History
-- Credential Registry
+- Multi-chain Identity Graph
+- Cross-chain Reputation
+- Credential Revocation Registry
+- Public Verification API
 
-### Developer Platform
-- REST API
-- SDK
-- Documentation Portal
-- Integration Examples
 
-### Enterprise
+## V15 Enterprise Layer
+
+Planned:
+
 - Organization Accounts
-- Permission System
-- Audit Logs
-- Identity Analytics
+- SaaS Dashboard
+- API Keys
+- Enterprise Identity Management
+- Role Based Access Control
 
 
 ## Long Term Vision
 
-Build an open identity verification layer for Web3 applications.
+Create an open identity verification infrastructure layer for Web3.
