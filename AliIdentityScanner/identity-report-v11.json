@@ -1,0 +1,97 @@
+{
+  "engine": "AliAlkhtri Sovereign Identity Engine V11",
+  "created": "2026-07-20T22:28:42.120Z",
+  "wallets": [
+    {
+      "address": "0xB45A7510EaaD1Ef02CFaD55C67c0EA084CDD40d2",
+      "balances": {
+        "ethereum": 0,
+        "base": 0,
+        "arbitrum": 0,
+        "bsc": 0
+      },
+      "activity": 0,
+      "graphScore": 0,
+      "walletType": "Inactive",
+      "sybilRisk": 40,
+      "reputation": 10,
+      "flags": [
+        "low activity"
+      ]
+    },
+    {
+      "address": "0x52d892bc11E9755F924A1DB0aA6981C7650b824F",
+      "balances": {
+        "ethereum": 0,
+        "base": 0,
+        "arbitrum": 0,
+        "bsc": 0
+      },
+      "activity": 0,
+      "graphScore": 0,
+      "walletType": "Inactive",
+      "sybilRisk": 40,
+      "reputation": 10,
+      "flags": [
+        "low activity"
+      ]
+    },
+    {
+      "address": "0x412E8548be87Da2e16E2fd74A6b7099C9d90933C",
+      "balances": {
+        "ethereum": 0.000002388091545,
+        "base": 0.000010069212669898,
+        "arbitrum": 1.11624e-7,
+        "bsc": 0
+      },
+      "activity": 3,
+      "graphScore": 80,
+      "walletType": "Human-like Multi-chain",
+      "sybilRisk": 0,
+      "reputation": 90,
+      "flags": [
+        "multi-chain activity"
+      ]
+    },
+    {
+      "address": "0x5552eccfbafb45dcd4a0e1b97e22a3899c9cf432",
+      "balances": {
+        "ethereum": 0,
+        "base": 0,
+        "arbitrum": 0,
+        "bsc": 0
+      },
+      "activity": 0,
+      "graphScore": 0,
+      "walletType": "Inactive",
+      "sybilRisk": 40,
+      "reputation": 10,
+      "flags": [
+        "low activity"
+      ]
+    },
+    {
+      "address": "0xba777ae3a3c91fcd83ef85bfe65410592bdd0f7c",
+      "balances": {
+        "ethereum": 0.10344,
+        "base": 0,
+        "arbitrum": 0,
+        "bsc": 0.6596159954441623
+      },
+      "activity": 2,
+      "graphScore": 80,
+      "walletType": "Human-like Multi-chain",
+      "sybilRisk": 0,
+      "reputation": 90,
+      "flags": [
+        "multi-chain activity"
+      ]
+    }
+  ],
+  "identityScore": "42%",
+  "summary": {
+    "wallets": 5,
+    "active": 2,
+    "engineStatus": "ONLINE"
+  }
+}

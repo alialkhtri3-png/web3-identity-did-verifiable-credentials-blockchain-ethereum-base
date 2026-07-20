@@ -1,0 +1,170 @@
+{
+  "engine": "AliAlkhtri Sovereign Identity Engine V19",
+  "created": "2026-07-20T22:44:16.370Z",
+  "wallets": [
+    {
+      "address": "0xB45A7510EaaD1Ef02CFaD55C67c0EA084CDD40d2",
+      "chains": {
+        "base": 0,
+        "arbitrum": 0,
+        "bsc": 0,
+        "ethereum": "offline"
+      },
+      "transactions": {
+        "status": "indexed",
+        "estimatedActivity": 0
+      },
+      "firstSeen": "unknown",
+      "lastBlock": {
+        "base": 48898911,
+        "arbitrum": 485984419,
+        "bsc": 111172605
+      },
+      "behavior": "inactive",
+      "graph": {
+        "connections": 0,
+        "score": 0
+      },
+      "did": "did:ethr:0xB45A7510EaaD1Ef02CFaD55C67c0EA084CDD40d2",
+      "identity": "Inactive Wallet",
+      "confidence": 60,
+      "risk": "MEDIUM",
+      "reputation": 10,
+      "reputationScore": 0,
+      "behaviorClass": "Inactive",
+      "verified": false
+    },
+    {
+      "address": "0x52d892bc11E9755F924A1DB0aA6981C7650b824F",
+      "chains": {
+        "base": 0,
+        "arbitrum": 0,
+        "bsc": 0,
+        "ethereum": "offline"
+      },
+      "transactions": {
+        "status": "indexed",
+        "estimatedActivity": 0
+      },
+      "firstSeen": "unknown",
+      "lastBlock": {
+        "base": 48898913,
+        "arbitrum": 485984435,
+        "bsc": 111172612
+      },
+      "behavior": "inactive",
+      "graph": {
+        "connections": 0,
+        "score": 0
+      },
+      "did": "did:ethr:0x52d892bc11E9755F924A1DB0aA6981C7650b824F",
+      "identity": "Inactive Wallet",
+      "confidence": 60,
+      "risk": "MEDIUM",
+      "reputation": 10,
+      "reputationScore": 0,
+      "behaviorClass": "Inactive",
+      "verified": false
+    },
+    {
+      "address": "0x412E8548be87Da2e16E2fd74A6b7099C9d90933C",
+      "chains": {
+        "base": 0.000010069212669898,
+        "arbitrum": 1.11624e-7,
+        "bsc": 0,
+        "ethereum": "offline"
+      },
+      "transactions": {
+        "status": "indexed",
+        "estimatedActivity": 2
+      },
+      "firstSeen": "detected-v18",
+      "lastBlock": {
+        "base": 48898914,
+        "arbitrum": 485984443,
+        "bsc": 111172616
+      },
+      "behavior": "multi-chain user",
+      "graph": {
+        "connections": 2,
+        "score": 80
+      },
+      "did": "did:ethr:0x412E8548be87Da2e16E2fd74A6b7099C9d90933C",
+      "identity": "Verified Human Multi-chain",
+      "confidence": 95,
+      "risk": "LOW",
+      "reputation": 95,
+      "reputationScore": 100,
+      "behaviorClass": "Verified Human",
+      "verified": true
+    },
+    {
+      "address": "0x5552eccfbafb45dcd4a0e1b97e22a3899c9cf432",
+      "chains": {
+        "base": 0,
+        "arbitrum": 0,
+        "bsc": 0,
+        "ethereum": "offline"
+      },
+      "transactions": {
+        "status": "indexed",
+        "estimatedActivity": 0
+      },
+      "firstSeen": "unknown",
+      "lastBlock": {
+        "base": 48898915,
+        "arbitrum": 485984451,
+        "bsc": 111172621
+      },
+      "behavior": "inactive",
+      "graph": {
+        "connections": 0,
+        "score": 0
+      },
+      "did": "did:ethr:0x5552eccfbafb45dcd4a0e1b97e22a3899c9cf432",
+      "identity": "Inactive Wallet",
+      "confidence": 60,
+      "risk": "MEDIUM",
+      "reputation": 10,
+      "reputationScore": 0,
+      "behaviorClass": "Inactive",
+      "verified": false
+    },
+    {
+      "address": "0xba777ae3a3c91fcd83ef85bfe65410592bdd0f7c",
+      "chains": {
+        "base": 0,
+        "arbitrum": 0,
+        "bsc": 0.6596159954441623,
+        "ethereum": "offline"
+      },
+      "transactions": {
+        "status": "indexed",
+        "estimatedActivity": 1
+      },
+      "firstSeen": "detected-v18",
+      "lastBlock": {
+        "base": 48898916,
+        "arbitrum": 485984460,
+        "bsc": 111172625
+      },
+      "behavior": "single-chain user",
+      "graph": {
+        "connections": 1,
+        "score": 40
+      },
+      "did": "did:ethr:0xba777ae3a3c91fcd83ef85bfe65410592bdd0f7c",
+      "identity": "Active Wallet",
+      "confidence": 95,
+      "risk": "LOW",
+      "reputation": 60,
+      "reputationScore": 70,
+      "behaviorClass": "Active User",
+      "verified": false
+    }
+  ],
+  "proof": {
+    "algorithm": "SHA256",
+    "hash": "c55c74a8a8c8f81cf059b804f0a1bab88c16b930436032420baed3248c4bc55e"
+  }
+}

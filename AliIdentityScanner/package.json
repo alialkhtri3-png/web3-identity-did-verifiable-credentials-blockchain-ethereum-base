@@ -17,6 +17,7 @@
     "ethers": "^6.17.0",
     "express": "^5.2.1",
     "fs-extra": "^11.3.6",
+    "qrcode": "^1.5.4",
     "siwe": "^3.0.0"
   },
   "devDependencies": {

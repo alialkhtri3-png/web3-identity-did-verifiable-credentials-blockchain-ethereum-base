@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sovereign Identity V22</title>
+<style>
+body{
+font-family:Arial;
+background:#0b0f19;
+color:white;
+padding:30px;
+}
+.card{
+background:#151b2b;
+padding:20px;
+border-radius:15px;
+margin:15px 0;
+}
+h1{
+color:#4ade80;
+}
+</style>
+</head>
+
+<body>
+
+<h1>AliAlkhtri Sovereign Identity Engine V22</h1>
+
+<div class="card" id="status">
+Loading...
+</div>
+
+<div class="card" id="wallets">
+</div>
+
+<script>
+
+async function load(){
+
+let data=await fetch(
+"http://localhost:3000/"
+).then(r=>r.json());
+
+document.getElementById("status").innerHTML=
+`
+Engine: ${data.engine}<br>
+Status: ${data.status}
+`;
+
+
+let report=await fetch(
+"http://localhost:3000/credential/0x412E8548be87Da2e16E2fd74A6b7099C9d90933C"
+).then(r=>r.json());
+
+
+document.getElementById("wallets").innerHTML=
+`
+<h3>Identity Credential</h3>
+Wallet:
+${report.credentialSubject.wallet}
+<br>
+Identity:
+${report.credentialSubject.identity}
+<br>
+Reputation:
+${report.credentialSubject.reputation}
+<br>
+Proof:
+${report.proof.hash}
+`;
+
+}
+
+load();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+{
+  "engine": "AliAlkhtri Sovereign Identity Engine V15",
+  "created": "2026-07-20T22:34:24.766Z",
+  "identityScore": "44%",
+  "wallets": [
+    {
+      "address": "0xB45A7510EaaD1Ef02CFaD55C67c0EA084CDD40d2",
+      "balances": {
+        "ethereum": 0,
+        "base": 0,
+        "arbitrum": 0,
+        "bsc": 0
+      },
+      "transactions": "pending-index",
+      "walletAge": "unknown",
+      "graph": {
+        "connections": 0,
+        "score": 0
+      },
+      "did": "did:ethr:0xB45A7510EaaD1Ef02CFaD55C67c0EA084CDD40d2",
+      "identity": "Inactive Wallet",
+      "confidence": 60,
+      "risk": "MEDIUM",
+      "reputation": 10
+    },
+    {
+      "address": "0x52d892bc11E9755F924A1DB0aA6981C7650b824F",
+      "balances": {
+        "ethereum": 0,
+        "base": 0,
+        "arbitrum": 0,
+        "bsc": 0
+      },
+      "transactions": "pending-index",
+      "walletAge": "unknown",
+      "graph": {
+        "connections": 0,
+        "score": 0
+      },
+      "did": "did:ethr:0x52d892bc11E9755F924A1DB0aA6981C7650b824F",
+      "identity": "Inactive Wallet",
+      "confidence": 60,
+      "risk": "MEDIUM",
+      "reputation": 10
+    },
+    {
+      "address": "0x412E8548be87Da2e16E2fd74A6b7099C9d90933C",
+      "balances": {
+        "ethereum": 0.000002388091545,
+        "base": 0.000010069212669898,
+        "arbitrum": 1.11624e-7,
+        "bsc": 0
+      },
+      "transactions": "pending-index",
+      "walletAge": "active",
+      "graph": {
+        "connections": 3,
+        "score": 120
+      },
+      "did": "did:ethr:0x412E8548be87Da2e16E2fd74A6b7099C9d90933C",
+      "identity": "Human Multi-chain Identity",
+      "confidence": 95,
+      "risk": "LOW",
+      "reputation": 95
+    },
+    {
+      "address": "0x5552eccfbafb45dcd4a0e1b97e22a3899c9cf432",
+      "balances": {
+        "ethereum": 0,
+        "base": 0,
+        "arbitrum": 0,
+        "bsc": 0
+      },
+      "transactions": "pending-index",
+      "walletAge": "unknown",
+      "graph": {
+        "connections": 0,
+        "score": 0
+      },
+      "did": "did:ethr:0x5552eccfbafb45dcd4a0e1b97e22a3899c9cf432",
+      "identity": "Inactive Wallet",
+      "confidence": 60,
+      "risk": "MEDIUM",
+      "reputation": 10
+    },
+    {
+      "address": "0xba777ae3a3c91fcd83ef85bfe65410592bdd0f7c",
+      "balances": {
+        "ethereum": 0.10344,
+        "base": 0,
+        "arbitrum": 0,
+        "bsc": 0.6596159954441623
+      },
+      "transactions": "pending-index",
+      "walletAge": "active",
+      "graph": {
+        "connections": 3,
+        "score": 120
+      },
+      "did": "did:ethr:0xba777ae3a3c91fcd83ef85bfe65410592bdd0f7c",
+      "identity": "Human Multi-chain Identity",
+      "confidence": 95,
+      "risk": "LOW",
+      "reputation": 95
+    }
+  ],
+  "status": "ONLINE"
+}
